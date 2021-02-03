@@ -9,7 +9,7 @@
 import UIKit
 
 extension TTTAttributedLabel {
-    func setText(_ text: String, lineSpacing: CGFloat = 20, addHTMLLinks: Bool = false, shouldAppend: Bool = false) {
+    public func setText(_ text: String, lineSpacing: CGFloat = 20, addHTMLLinks: Bool = false, shouldAppend: Bool = false) {
         // ensures that no HTML tags will be displayed on the description [GN]
         let strippedText = String.stripHTMLTags(from: text)
         
