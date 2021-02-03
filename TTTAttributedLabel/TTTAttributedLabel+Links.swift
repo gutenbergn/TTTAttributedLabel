@@ -9,7 +9,7 @@
 import UIKit
 
 extension TTTAttributedLabel {
-    func setupLinkLabel(text: String, font: UIFont?, color: UIColor, linkColor: UIColor? = nil,
+    public func setupLinkLabel(text: String, font: UIFont?, color: UIColor, linkColor: UIColor? = nil,
                         shouldIncludeLinkUnderline: Bool = true, alignment: NSTextAlignment = .left,
                         alpha: CGFloat = 1.0) {
         let textColor = color
