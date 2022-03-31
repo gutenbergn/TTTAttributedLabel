@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.frameworks   = 'UIKit', 'CoreText', 'CoreGraphics', 'QuartzCore'
   s.source_files = 'TTTAttributedLabel'
   s.requires_arc = true
-  s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
+  s.tvos.deployment_target = '10.0'
   s.social_media_url = 'https://twitter.com/mattt'
-  s.dependency 'FuzeUtils', '0.2.9'
+  s.dependency 'FuzeUtils'
 end
