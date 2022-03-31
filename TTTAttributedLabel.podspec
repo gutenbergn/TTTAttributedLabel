@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '9.0'
   s.social_media_url = 'https://twitter.com/mattt'
-  s.dependency 'FuzeUtils'
+  s.dependency 'FuzeUtils', '0.2.9'
 end
