@@ -50,5 +50,19 @@ extension TTTAttributedLabel {
                 self.addLink(to: linkURL, with: keywordRange)
             }
         }
+        
+        let types: NSTextCheckingResult.CheckingType = .link
+
+        let detector = try? NSDataDetector(types: types.rawValue)
+        
+        let matches = detector?.matches(in: strippedText, options: .reportCompletion,
+                                        range: NSMakeRange(0, strippedText.count))
+
+        for match in matches ?? [] {
+            guard let url = match.url else {
+                continue
+            }
+            self.addLink(to: url, with: match.range)
+        }
     }
 }
