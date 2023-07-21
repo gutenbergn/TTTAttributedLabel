@@ -15,8 +15,11 @@ extension String {
         
         // first removes any space character from the link [GN]
         let linkComponents = originalLink.components(separatedBy: " ")
-        if !linkComponents.isEmpty {
-            fixedLink = linkComponents[0]
+        for component in linkComponents {
+            if let range = component.range(of: "http") ?? component.range(of: "www") {
+                fixedLink = String(component[range.lowerBound...])
+                break
+            }
         }
         
         // then ensures that the link does not begin with a character that isn't a letter [GN]
