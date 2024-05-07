@@ -18,10 +18,10 @@ extension TTTAttributedLabel {
         let attributedString = NSMutableAttributedString(
             string: text,
             attributes: self.defaultLinkedLabelAttributesDictionary(
-                font: font, color: textColor) as? [NSAttributedStringKey: Any] ?? [:])
+                font: font, color: textColor) as? [NSAttributedString.Key: Any] ?? [:])
         
         let paragraphStyle = self.defaultAttributedLabelParagraphStyle(alignment: alignment)
-        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle,
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle,
                                       range: NSMakeRange(0, attributedString.length))
         self.attributedText = attributedString
         self.textAlignment = alignment
@@ -33,23 +33,23 @@ extension TTTAttributedLabel {
     private func setupLinkAttributes(font: UIFont?, color: UIColor, shouldIncludeLinkUnderline: Bool) {
         let linkAttributes = self.defaultLinkedLabelAttributesDictionary(font: font, color: color)
         if shouldIncludeLinkUnderline {
-            linkAttributes[NSAttributedStringKey.underlineStyle] = NSNumber(integerLiteral: NSUnderlineStyle.styleSingle.rawValue)
+            linkAttributes[NSAttributedString.Key.underlineStyle] = NSNumber(integerLiteral: NSUnderlineStyle.single.rawValue)
         }
         
         self.linkAttributes = linkAttributes as? [AnyHashable : Any] ?? [:]
         
         let activeLinkAttributes = self.defaultLinkedLabelAttributesDictionary(font: font, color: color)
         if shouldIncludeLinkUnderline {
-            activeLinkAttributes[NSAttributedStringKey.underlineStyle] = NSNumber(integerLiteral: NSUnderlineStyle.styleSingle.rawValue)
+            activeLinkAttributes[NSAttributedString.Key.underlineStyle] = NSNumber(integerLiteral: NSUnderlineStyle.single.rawValue)
         }
         
-        activeLinkAttributes[NSAttributedStringKey.foregroundColor] = UIColor.lightGray
+        activeLinkAttributes[NSAttributedString.Key.foregroundColor] = UIColor.lightGray
         self.activeLinkAttributes = activeLinkAttributes as? [AnyHashable : Any] ?? [:]
     }
     
     private func defaultLinkedLabelAttributesDictionary(font: UIFont?, color: UIColor) -> NSMutableDictionary {
         return NSMutableDictionary(objects: [font as Any, color],
-                                   forKeys: [NSAttributedStringKey.font as NSCopying, NSAttributedStringKey.foregroundColor as NSCopying])
+                                   forKeys: [NSAttributedString.Key.font as NSCopying, NSAttributedString.Key.foregroundColor as NSCopying])
     }
     
     private func defaultAttributedLabelParagraphStyle(lineSpacing: CGFloat = 3,
