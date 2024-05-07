@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTTAttributedLabelObjC
 
 extension TTTAttributedLabel {
     public func setText(_ text: String, lineSpacing: CGFloat = 20, addHTMLLinks: Bool = false, shouldAppend: Bool = false) {

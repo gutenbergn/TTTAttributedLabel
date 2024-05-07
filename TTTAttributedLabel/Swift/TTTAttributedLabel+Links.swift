@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTTAttributedLabelObjC
 
 extension TTTAttributedLabel {
     public func setupLinkLabel(text: String, font: UIFont?, color: UIColor, linkColor: UIColor? = nil,
