@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "TTTAttributedLabel",
-            targets: ["TTTAttributedLabel"]),
+            targets: ["TTTAttributedLabel", "TTTAttributedLabelObjC"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,13 +20,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "TTTAttributedLabel",
-            dependencies: ["FuzeUtils"],
-            path: "TTTAttributedLabel",
-            sources: ["Swift", "ObjC"],
-            publicHeadersPath: "ObjC/Headers",
-            cSettings: [
-                .headerSearchPath("ObjC/Headers"),
-            ],
+            dependencies: ["TTTAttributedLabelObjC", "FuzeUtils"],
+            path: "TTTAttributedLabel/Swift",
             linkerSettings: [
                 .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS])),
                 .linkedFramework("CoreText", .when(platforms: [.iOS, .tvOS])),
@@ -34,6 +29,14 @@ let package = Package(
                 .linkedFramework("QuartzCore", .when(platforms: [.iOS, .tvOS]))
             ]
         ),
+        .target(
+            name: "TTTAttributedLabelObjC",
+            path: "TTTAttributedLabel/ObjC",
+            publicHeadersPath: "Headers",
+            cSettings: [
+                .headerSearchPath("Headers")
+            ]
+        )
         //.testTarget(
         //    name: "FuzeUtilsTests",
         //    dependencies: ["FuzeUtils"]),
