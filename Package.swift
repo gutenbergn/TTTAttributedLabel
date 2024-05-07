@@ -22,6 +22,11 @@ let package = Package(
             name: "TTTAttributedLabel",
             dependencies: ["FuzeUtils"],
             path: "TTTAttributedLabel",
+            sources: ["Swift", "ObjC"],
+            publicHeadersPath: "ObjC/Headers",
+            cSettings: [
+                .headerSearchPath("ObjC/Headers"),
+            ],
             linkerSettings: [
                 .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS])),
                 .linkedFramework("CoreText", .when(platforms: [.iOS, .tvOS])),
